@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Object Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body class="">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="#">Academy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 id="academy-name-welcome"></h1>
+                        <div id="academy-address" class="alert alert-info" role="alert"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mt-4">
+                        <h3>Information about
+                            <span id="academy-name"></span>
+                        </h3>
+                    </div>
+                    <div class="col">
+                        <p>Student count: <span id="studentCount"></span></p>
+                    </div>
+                    <div class="col">
+                        <p>Teacher count: <span id="teacherCount"></span></p>
+                    </div>
+                    <div class="col">
+                        <p>Group count: <span id="groupCount"></span></p>
+                    </div>
+                    <div class="col">
+                        <p>Room count: <span id="roomCount"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <div class="mb-5 border border-info rounded p-4">
+                            <h3 class="text-center">Student</h3>
+                            <div class="mb-4">
+                                <div class="form-group ">
+                                    <label for="student-name">Name</label>
+                                    <input type="text" class="form-control" id="student-name">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="student-surname">Surname</label>
+                                    <input type="text" class="form-control" id="student-surname">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="student-email">Email</label>
+                                    <input type="text" class="form-control" id="student-email">
+                                </div>
+
+                                <p class="mt-5 h4">Address</p>
+                                <div class="row">
+
+                                    <div class="form-group col-12">
+                                        <label for="student-address-street">Street</label>
+                                        <input type="text" class="form-control" id="student-address-street">
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                        <label for="student-address-city">City</label>
+                                        <input type="text" class="form-control" id="student-address-city">
+                                    </div>
+
+                                    <div class="form-group col-12">
+                                        <label for="student-address-country">Country</label>
+                                        <input type="text" class="form-control" id="student-address-country">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" id="save-room" class="btn btn-outline-primary ml-3" onclick="saveStudent()">Save</button>
+                                </div>
+                            </div>
+                            <h4 class="text-center">List of Students</h4>
+                            <ul id="students-list" class="list-group">
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-5 border border-info rounded p-4">
+                            <h3 class="text-center">Room</h3>
+                            <div class="mb-4">
+                                <div class="form-group ">
+                                    <label for="room-name">Name</label>
+                                    <input type="text" class="form-control" id="room-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="room-capacity">Capacity</label>
+                                    <input type="text" class="form-control" id="room-capacity">
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" id="save-room" class="btn btn-outline-primary ml-3" onclick="saveRoom()">Save</button>
+                                </div>
+                            </div>
+                            <h4 class="text-center">List of Rooms</h4>
+                            <ul id="rooms-list" class="list-group">
+                            </ul>
+                        </div>
+
+
+                        <div class="mb-5 border border-info rounded p-4">
+                            <h3 class="text-center">Group</h3>
+                            <div class="mb-4">
+                                <div class="form-group ">
+                                    <label for="group-name">Name</label>
+                                    <input type="text" class="form-control" id="group-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="group-select-room">Room</label>
+                                    <select id="group-select-room" class="form-control">
+                                        <option>Choose...</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" id="save-group" class="btn btn-outline-primary ml-3" onclick="saveGroup();">Save</button>
+                                </div>
+                            </div>
+                            <h4 class="text-center">List of Groups</h4>
+                            <ul id="groups-list" class="list-group">
+                            </ul>
+                        </div>
+
+
+                        <div class="mb-5 border border-info rounded p-4">
+                            <h3 class="text-center">Teacher</h3>
+                            <div class="mb-4">
+                                <div class="form-group ">
+                                    <label for="teacher-name">Name</label>
+                                    <input type="text" class="form-control" id="teacher-name">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="teacher-surname">Surname</label>
+                                    <input type="text" class="form-control" id="teacher-surname">
+                                </div>
+                                <div class="form-group ">
+                                    <label for="teacher-email">Email</label>
+                                    <input type="text" class="form-control" id="teacher-email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="teacher-select-group">Groups</label>
+                                    <select multiple id="teacher-select-group" class="form-control">
+                                        <option>Choose...</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" id="save-teacher" class="btn btn-outline-primary ml-3" onclick="saveTeacher();">Save</button>
+                                </div>
+                            </div>
+                            <h4 class="text-center">List of Teachers</h4>
+                            <ul id="teachers-list" class="list-group">
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
